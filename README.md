@@ -15,7 +15,7 @@
 > ```
 > #### 支付结果回调,遵守 AlipayDelegate 协议
 > ```
-> 	/// 支付成功
+>   /// 支付成功
 >   func alipaySuccess(_ result: Any) -> Void;
 >   /// 支付失败
 >   func alipayFail(_ result: Any) -> Void;
