@@ -27,13 +27,10 @@ protocol AlipayDelegate: class {
     
     /// 支付成功
     func alipaySuccess(_ result: Any) -> Void;
-    
     /// 支付失败
     func alipayFail(_ result: Any) -> Void;
-    
     /// 支付取消
     func alipayCancel(_ result: Any) -> Void;
-    
     /// 其他未知错误
     func alipayUnknownError(_ result: Any) -> Void;
     

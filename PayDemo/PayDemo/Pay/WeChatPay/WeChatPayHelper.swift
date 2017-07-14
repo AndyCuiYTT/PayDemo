@@ -58,7 +58,7 @@ class WeChatPayHelper: NSObject, WXApiDelegate {
     
     /// 微信支付
     ///
-    /// - Parameter orderInfo: 支付信息,包含签名
+    /// - Parameter orderInfo: 支付信息(包含:partnerId,prepayId,package,nonceStr,timeStamp,sign等信息)
     func pay(_ orderInfo: [String : String]) -> Void {
         
         if WXApi.isWXAppInstalled() {
