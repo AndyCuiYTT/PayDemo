@@ -4,17 +4,17 @@
 ## 支付宝支付
 > #### 调起支付
 > ```
- 	/// 调起支付宝支付///
-    /// - Parameters:
-    ///   - orderinfo: 商品信息字符串
-    ///   - signedString: 商户信息签名
-    ///   - fromScheme: 应用注册scheme
-    ///   - resultDic: 支付结果回调
-    func pay(_ orderinfo: String, signedString: String, fromScheme: String) -> Void
+> 	/// 调起支付宝支付///
+>   /// - Parameters:
+>   ///   - orderinfo: 商品信息字符串
+>   ///   - signedString: 商户信息签名
+>   ///   - fromScheme: 应用注册scheme
+>   ///   - resultDic: 支付结果回调
+>   func pay(_ orderinfo: String, signedString: String, fromScheme: String) -> Void
 > ```
-> #### 支付结果回调,遵守 AlipayDelegate 协议
+#### 支付结果回调,遵守 AlipayDelegate 协议
 > ```
- 	/// 支付成功
+	/// 支付成功
     func alipaySuccess(_ result: Any) -> Void;
     /// 支付失败
     func alipayFail(_ result: Any) -> Void;
