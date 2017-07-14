@@ -15,6 +15,10 @@
  *
  *  note: swift 集成 ailpay 需要建立桥接文件添加 '#import <AlipaySDK/AlipaySDK.h>',如果 Unknown type name 'UIWindow' 或 property with 'weak' attribute must be of object type 错误请添加 '#import <UIKit/UIKit.h>',务必添加在 '#import <AlipaySDK/AlipaySDK.h>' 之前
  *
+ *  签名过程: https://docs.open.alipay.com/291/106118
+ *
+ *  签名算法参考: https://github.com/TakeScoop/SwiftyRSA
+ * 
  *
  */
 
@@ -73,9 +77,7 @@ class AlipayHelper: NSObject {
         }
     }
     
-    class func pay() -> Void{
-        
-    }
+    
     
     
     

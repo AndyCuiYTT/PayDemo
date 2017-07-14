@@ -15,6 +15,8 @@
  *
  *  note: 如果需要使用 cocopods 导入,在 Podfile 添加 pod 'WechatOpenSDK'
  *
+ *  签名过程: https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=4_3
+ *
  */
 
 
@@ -53,7 +55,11 @@ class WeChatPayHelper: NSObject, WXApiDelegate {
         self.delegate = delegate
     }
     
-    func pay(_ orderInfo: [String : String], isSigned: Bool = true) -> Void {
+    
+    /// 微信支付
+    ///
+    /// - Parameter orderInfo: 支付信息,包含签名
+    func pay(_ orderInfo: [String : String]) -> Void {
         
         if WXApi.isWXAppInstalled() {
             let request = PayReq()
@@ -62,14 +68,7 @@ class WeChatPayHelper: NSObject, WXApiDelegate {
             request.package = orderInfo["package"]
             request.nonceStr = orderInfo["nonceStr"]
             request.timeStamp = UInt32(orderInfo["timeStamp"]!)!
-            
-            if isSigned {
-                request.sign = orderInfo["sign"]
-            }else {
-                request.sign = self.getSignStr(orderInfo, keyStr: payKeyStr)
-            }
-            
-            
+            request.sign = orderInfo["sign"]
             WXApi.send(request)
         }else {
             delegate?.WeChatPayWXAppUninstall()

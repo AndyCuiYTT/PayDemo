@@ -546,6 +546,7 @@
 				3B3BB04F1F184FF100963772 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3B3BB0501F184FF100963772 /* Build configuration list for PBXNativeTarget "PayDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -554,6 +555,7 @@
 				3B3BB0521F184FF100963772 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
