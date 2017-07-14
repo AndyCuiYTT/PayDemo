@@ -6,3 +6,6 @@
 #import <AlipaySDK/AlipaySDK.h>
 
 #import "WXApi.h"
+
+#import <CommonCrypto/CommonCrypto.h>
+

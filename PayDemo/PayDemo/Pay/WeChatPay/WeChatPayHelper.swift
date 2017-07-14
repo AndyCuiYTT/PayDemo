@@ -35,7 +35,10 @@ protocol WeChatPayDelegate : class{
     func WeChatPayCancel() -> Void;
 }
 
+
 class WeChatPayHelper: NSObject, WXApiDelegate {
+    
+    private let payKeyStr = ""
     
     private weak var delegate: WeChatPayDelegate?
     
@@ -50,7 +53,7 @@ class WeChatPayHelper: NSObject, WXApiDelegate {
         self.delegate = delegate
     }
     
-    func pay(_ orderInfo: [String : String]) -> Void {
+    func pay(_ orderInfo: [String : String], isSigned: Bool = true) -> Void {
         
         if WXApi.isWXAppInstalled() {
             let request = PayReq()
@@ -59,7 +62,14 @@ class WeChatPayHelper: NSObject, WXApiDelegate {
             request.package = orderInfo["package"]
             request.nonceStr = orderInfo["nonceStr"]
             request.timeStamp = UInt32(orderInfo["timeStamp"]!)!
-            request.sign = orderInfo["sign"]
+            
+            if isSigned {
+                request.sign = orderInfo["sign"]
+            }else {
+                request.sign = self.getSignStr(orderInfo, keyStr: payKeyStr)
+            }
+            
+            
             WXApi.send(request)
         }else {
             delegate?.WeChatPayWXAppUninstall()
@@ -86,5 +96,45 @@ class WeChatPayHelper: NSObject, WXApiDelegate {
     }
     
     
+    // MARK: 签名辅助方法
+    
+    /// 字符串 MD5加密
+    ///
+    /// - Parameter str: 要加密字符串
+    /// - Returns: 加密后字符串
+    func MD5(_ str: String) -> String {
+        let cStr = str.cString(using: .utf8)
+        let strLen = CUnsignedInt(str.lengthOfBytes(using: .utf8))
+        let result = UnsafeMutablePointer<UInt8>.allocate(capacity: Int(CC_MD5_DIGEST_LENGTH))
+        CC_MD5(cStr, strLen, result)
+        let MD5Str = NSMutableString()
+        for i in 0 ..< Int(CC_MD5_DIGEST_LENGTH) {
+            MD5Str.appendFormat("%02x", result[i])
+        }
+        result.deinitialize()
+        return MD5Str as String
+
+    }
+    
+    /// 获取签名字符串(MD5 签名)
+    ///
+    /// - Parameters:
+    ///   - orderInfo: 支付信息
+    ///   - keyStr: API密钥
+    /// - Returns: 签名字符串
+    func getSignStr(_ orderInfo: [String : String] ,keyStr: String) -> String {
+        var signStr = String()
+        let keys = orderInfo.keys.sorted()
+        for key in keys {
+            if key != "sign" && !(orderInfo[key]?.isEmpty)!{
+                signStr.append("\(key)=\(orderInfo[key]!)&")
+            }
+        }
+        signStr.append("key=\(keyStr)")
+        print(signStr)
+        return self.MD5(signStr).uppercased()
+    }
     
 }
+
+
