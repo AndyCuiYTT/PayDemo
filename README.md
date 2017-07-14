@@ -4,9 +4,9 @@
 ## 支付宝支付
 > #### 调起支付
 > ```
-> 	/// 调起支付宝支付
-> 	///
->   /// - Parameters:
+>   /// 调起支付宝支付
+>   ///
+>	/// - Parameters:
 >   ///   - orderinfo: 商品信息字符串
 >   ///   - signedString: 商户信息签名
 >   ///   - fromScheme: 应用注册scheme
