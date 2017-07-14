@@ -5,9 +5,9 @@
 > #### 调起支付
 > ```swift
 > 	/// 调起支付宝支付
-    ///
-    /// - Parameters:
-    ///   - orderinfo: 商品信息字符串
+> 	///
+>   /// - Parameters:
+>   ///   - orderinfo: 商品信息字符串
     ///   - signedString: 商户信息签名
     ///   - fromScheme: 应用注册scheme
     ///   - resultDic: 支付结果回调
