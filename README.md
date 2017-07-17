@@ -33,6 +33,15 @@
     /// - Parameter orderInfo: 支付信息(包含:partnerId,prepayId,package,nonceStr,timeStamp,sign等信息)
     func pay(_ orderInfo: [String : String]) -> Void
 > ```
+> ## 微信支付 item
+> > * appid: 应用ID(微信开放平台审核通过的应用APPID)
+> > * partnerid: 商户号(微信支付分配的商户号)
+> > * prepayid: 预支付交易会话ID(微信返回的支付交易会话ID)
+> > * package: 扩展字段(只读)
+> > * noncestr： 随机字符串（只读）
+> > * timestamp： 时间撮（只读）
+> > * getSignDic()： 获取签名后的字典
+
 > #### 数据签名(获取签名字符串)
 > ```swift
 > 	/// 获取签名字符串(MD5 签名)
