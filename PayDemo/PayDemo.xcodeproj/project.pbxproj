@@ -31,6 +31,7 @@
 		3B3BB0951F186D2C00963772 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3BB0921F186D2C00963772 /* libWeChatSDK.a */; };
 		3B3BB0971F186F1400963772 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3BB0961F186F1400963772 /* libsqlite3.0.tbd */; };
 		3B3BB0991F186F2600963772 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3BB0981F186F2600963772 /* Security.framework */; };
+		3B7AB3DF1F1C452F00ECBF32 /* WeChatPayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AB3DE1F1C452F00ECBF32 /* WeChatPayItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		3B3BB0941F186D2C00963772 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		3B3BB0961F186F1400963772 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		3B3BB0981F186F2600963772 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3B7AB3DE1F1C452F00ECBF32 /* WeChatPayItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeChatPayItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				3B3BB0931F186D2C00963772 /* WXApi.h */,
 				3B3BB0941F186D2C00963772 /* WXApiObject.h */,
 				3B3BB0901F186CBE00963772 /* WeChatPayHelper.swift */,
+				3B7AB3DE1F1C452F00ECBF32 /* WeChatPayItem.swift */,
 			);
 			path = WeChatPay;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B3BB0601F18517300963772 /* AlipayHelper.swift in Sources */,
+				3B7AB3DF1F1C452F00ECBF32 /* WeChatPayItem.swift in Sources */,
 				3B3BB0361F184FF100963772 /* ViewController.swift in Sources */,
 				3B3BB0911F186CBE00963772 /* WeChatPayHelper.swift in Sources */,
 				3B3BB0341F184FF100963772 /* AppDelegate.swift in Sources */,
