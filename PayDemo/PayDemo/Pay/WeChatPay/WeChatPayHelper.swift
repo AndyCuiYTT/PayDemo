@@ -50,9 +50,11 @@ class WeChatPayHelper: NSObject, WXApiDelegate {
     }
     
     
-    init(_ delegate: WeChatPayDelegate) {
+    init(_ delegate: WeChatPayDelegate?) {
         super.init()
         self.delegate = delegate
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        appDelegate?.weChatPayHelper = self
     }
     
     
