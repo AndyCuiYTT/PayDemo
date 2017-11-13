@@ -58,7 +58,7 @@ class AlipayHelper: NSObject {
     ///   - fromScheme: 应用注册scheme
     ///   - resultDic: 支付结果回调
     func pay(_ orderinfo: String, signedString: String, fromScheme: String) -> Void {
-        let payOrder = "\(orderinfo)&sign=\(signedString)"
+        let payOrder = "\(orderinfo)&sign=\(signedString)&sign_type=RSA"
         AlipaySDK.defaultService().payOrder(payOrder, fromScheme: fromScheme){ (result) in
             
             switch result?["code"] as! String {
